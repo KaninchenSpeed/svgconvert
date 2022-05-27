@@ -8,7 +8,7 @@ const out = `${process.cwd()}/${rout.replace(/.\//g, '')}`
 const templ = `${process.cwd()}/${rtempl.replace(/.\//g, '')}`
 
 const template = fs.readFileSync(templ).toString()
-const type = templ.split('.').find((v, i, arr) => i + 1 == arr.length)!
+const type = templ.replace(/.template/g, '').split('.').find((v, i, arr) => i + 1 == arr.length)!
 console.log(`input: ${inp}\noutput ${out}\ntemplate: ${templ}`)
 
 const convert = async (path: string) => {
